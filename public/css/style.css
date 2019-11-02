@@ -1,0 +1,43 @@
+body {
+    background: no-repeat bottom fixed;
+    background-image: url('../img/bgTwo.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+.logo {
+    height: 16em;
+}
+form {
+    width: 100%;
+    text-align: center;
+}
+.inp {
+    padding: 5px;
+    background: none;
+    font-size: 1.5em;
+    border-radius: 15px;
+    outline: none;
+    text-align: center;
+    border: 2px solid rgb(187,164,101);
+    color: rgb(187,164,101);
+}
+.label {
+    color: rgb(187,164,101);
+    display: block;
+    font-size: 1.4em;
+}
+.btn {
+    border: none;
+    background-color: rgb(187,164,101);
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+    padding: 10px;
+    border-radius: 25px;
+}
+.aReg {
+    color: rgb(187,164,101);
+    font-size: 1.3em;
+}

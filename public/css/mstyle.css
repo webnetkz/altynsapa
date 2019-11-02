@@ -1,0 +1,16 @@
+/* Styles for mobile device */
+@media only screen and (max-width: 900px) {
+    body {
+        background: no-repeat right;
+        background-image: url('../img/bgTwo.jpg');
+        -webkit-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }
+    .logo {
+        width: 100%;
+    }
+
+}
