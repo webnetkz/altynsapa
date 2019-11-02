@@ -26,7 +26,7 @@
             $res = $res->fetch(PDO::FETCH_ASSOC);
             
             if($res['email'] !== $email) {
-                $err = '<p class="visibleEr error" onclick="closeError();">Пользователь с таким именем не зарегистрирован</p>';
+                $err = '<p class="error">Пользователь с таким именем не зарегистрирован</p>';
             }else{
 
                 // Проверка пароля
@@ -44,19 +44,15 @@
                         $_SESSION['email'] = $email;
                         header('Location: golos.php');
                     }else{
-                        $err = '<p class="visibleEr error" onclick="closeError();">Не верный парль</p>';
+                        $err = '<p class="error">Не верный парль</p>';
                     }
                 }else{
-                    $err = '<p class="visibleEr error" onclick="closeError();">Введите пароль!</p>';
+                    $err = '<p class="error">Введите пароль!</p>';
                 }
             }
         }else{
-            $err = '<p class="visibleEr error" onclick="closeError();">Введите email!</p>';
+            $err = '<p class="error">Введите email!</p>';
         }
-    }
-
-    if(empty($email)) {
-        $email = '';
     }
 
     // Проверка существование ошибок
@@ -89,7 +85,7 @@
             </a>
         </div>
 
-        <form action="" method="post">
+        <form action="" method="post" class="form">
             <p class="pInp">
                 <label for="email" class="label">электрондық поштаны енгізіңіз</label>
                 <input type="email" class="inp" name="email" placeholder="">

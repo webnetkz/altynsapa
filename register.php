@@ -26,7 +26,7 @@
                     $pass = trim($_POST['pass']);
                     $pass = htmlentities($pass);
                 }else{
-                    $err = 'Введите пароль!';
+                    $err = '<p class="error">Введите пароль!</p>';
                 }
                 
                 // Проверка повторного пароля
@@ -34,12 +34,13 @@
                     $pass2 = trim($_POST['pass2']);
                     $pass = password_hash($pass, PASSWORD_DEFAULT);
 
-                    if(!empty($_SERVER['REMOTE_ADDR'])) {
-                        $ip = $_SERVER['REMOTE_ADDR'];
-                    }
                     if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
                         $ip = $ip.'/'.$_SERVER['HTTP_CLIENT_IP'];
                     }
+                    if(!empty($_SERVER['REMOTE_ADDR'])) {
+                        $ip = $_SERVER['REMOTE_ADDR'];
+                    }
+
                     $iin = $_POST['iin'];
 
                     // Регистрация
@@ -55,25 +56,17 @@
                         header('Location: golos.php');
                     }
                 }else{
-                    $err = '<p class="visibleEr error" onclick="closeError();">Заполните поле с паролем</p>';
+                    $err = '<p class="error">Заполните поля с паролями</p>';
                 }
 
             }else{
-                $err = '<p class="visibleEr error" onclick="closeError();">Пользователь с таким email существует</p>';
+                $err = '<p class="error">Пользователь с таким email существует</p>';
             }
             
         }else{
-            $err = '<p class="visibleEr error" onclick="closeError();">Введите email!</p></p>';
+            $err = '<p class="error">Введите email!</p>';
         }
     }
-    
-    // Переменные
-        if(empty($name)) {
-            $name = '';
-        }
-        if(empty($email)) {
-            $email = '';
-        }
 
     // Проверка существование ошибок
     if(!empty($err)) {
@@ -104,13 +97,13 @@
             </a>
         </div>
 
-        <form action="" method="post">
+        <form action="" method="post" class="form">
             <p class="pInp">
                 <label for="email" class="label">электрондық поштаны енгізіңіз</label>
                 <input type="email" class="inp" name="email" placeholder="">
             </p> 
             <p class="pInp">
-                <label for="iin" class="label">электрондық поштаны енгізіңіз ИИН</label>
+                <label for="iin" class="label">жеке сјйкестендіру нґмір ЖСН</label>
                 <input type="number" class="inp" name="iin" placeholder="">
             </p>    
             <p class="pInp">
@@ -118,7 +111,7 @@
                 <input type="password" class="inp" name="pass" placeholder="">
             </p>
             <p class="pInp">
-                <label for="pass2" class="label">құпия сөзді еңгізіңіз</label>
+                <label for="pass2" class="label">құпия сөзді қайта еңгізіңіз</label>
                 <input type="password" class="inp" name="pass2" placeholder="">
             </p>
             <input type="submit" class="btn" name="btn" value="Тіркеу"> 
