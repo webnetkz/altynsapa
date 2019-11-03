@@ -46,7 +46,7 @@
                     // Регистрация
                     $sqlReg = 'INSERT INTO users(`email`, `pass`, `ip`, `iin`) VALUES("'.$email.'", "'.$pass.'", "'.$ip.'", "'.$iin.'");';
                     $resReg = $pdo->query($sqlReg);
-            
+
                     // Редирект при успешной регистрации
                     if(!empty($resReg)) {
             

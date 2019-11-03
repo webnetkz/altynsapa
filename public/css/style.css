@@ -47,6 +47,11 @@ h3, p {
 .logo {
     height: 16em;
 }
+.logo2 {
+    height: 8em;
+    padding: 3em;
+    float: right;
+}
 .form {
     width: 100%;
     text-align: center;
@@ -84,6 +89,7 @@ h3, p {
     text-align: center;
     background-color: rgb(238, 241, 61);
     font-size: 2em;
+    color: black;
 }
 .line {
     width: 90%;
@@ -98,20 +104,27 @@ h3, p {
     border-radius: 50px;
     display: inline-block;
     width: 30%;
-    height: 60%;
+    height: 500px;
     border: 1px solid rgb(238, 241, 61);
     margin-left: 2%;
     margin-bottom: 1em;
+    box-shadow: 0 0 20px rgba(238, 241, 61, 0.5);
+}
+.cart4 {
+    width: 22%;
+}
+.cart5 {
+    width: 17%;
 }
 .cartI {
     display: block;
-    height: 50%;
+    height: 250px;
     margin: 10px auto;
     box-shadow: 0 0 20px rgba(238, 241, 61, 0.5);
     border-radius: 30px;
 }
 .small {
-    height: 40%;
+    height: 200px;
     text-align: center;
     font-size: 1em;
     padding: 5px;
