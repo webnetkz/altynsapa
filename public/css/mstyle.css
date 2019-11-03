@@ -21,4 +21,14 @@
         margin-left: 0;
         margin-bottom: 85px;
     }
+    .preview {
+        width: 90%;
+        margin-left: 5%;
+    }
+    h1, h2 {
+        font-size: 2em;
+    }
+    h3, p {
+        font-size: 1em;
+    }
 }

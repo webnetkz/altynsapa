@@ -10,17 +10,81 @@
     require_once 'app/pdo/connect.php';
 
     $email = $_SESSION['email'];
-    $sql = 'SELECT * FROM users WHERE email = "'.$email.'"';
+    $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
     $res = $pdo->query($sql);
     $res = $res->fetch(PDO::FETCH_ASSOC);
 
-    $ip = $res['ip'];
-
-
-    if(!empty($_POST['btn'])) {
-            $sqlL = 'INSERT INTO golos (g1, email) VALUES ("'.$_POST['btn'].'", "'.$email.'");';
-            $r = $pdo->query($sqlL);
+    if(empty($res['email'])) {
+        $ap = 'INSERT INTO golos(email) VALUES("'.$email.'")';
+        $ap = $pdo->query($ap);
     }
+
+    if(!empty($_POST['btn1'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if(!isset($res['g1'])) {
+            $btn = $_POST['btn1'];
+            $sqlL = 'UPDATE `golos` SET `g1`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn2'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if(!isset($res['g2'])) {
+            $btn = $_POST['btn2'];
+            $sqlL = 'UPDATE `golos` SET `g2`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn3'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if(!isset($res['g3'])) {
+            $btn = $_POST['btn3'];
+            $sqlL = 'UPDATE `golos` SET `g3`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn4'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if(!isset($res['g4'])) {
+            $btn = $_POST['btn4'];
+            $sqlL = 'UPDATE `golos` SET `g4`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn5'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if(!isset($res['g5'])) {
+            $btn = $_POST['btn5'];
+            $sqlL = 'UPDATE `golos` SET `g5`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+
 ?>
 <!-- HTML Content -->
 <html>
@@ -57,13 +121,10 @@
             <img src="public/img/logo2.png" alt="logo elorda jastary" class="logo2">
         </div>
 
-        <div>
+        <div class="preview">
             <h1>Elorda Jastary 2019</h1>
-                <hr>
             <h1>8</h1>
-                <hr>
             <h2>желтоқсан</h2>
-                <hr>
             <h1>19:00</h1>
         </div>
 
@@ -81,7 +142,7 @@
                         өткен xалықаралық ән байқауының жеңімпазы (2019).
                     </p>
                     <p>
-                    <button value="g1_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    <button value="1" name="btn1" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
 
                     </p>
                 </div>
@@ -94,7 +155,7 @@
                         арасында Әмре атымен кеңінен танымал.
                     </p>
                     <p>
-                    <button value="g1_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    <button value="2" name="btn1" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -107,7 +168,7 @@
                         байқаулардың жеңімпазы.
                     </p>
                     <p>
-                    <button value="g1_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    <button value="3" name="btn1" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -120,7 +181,7 @@
                     фильмідерінде басты рөлді сомдаған актер
                     </p>
                     <p>
-                    <button value="g2_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    <button value="1" name="btn2" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -131,19 +192,18 @@
                     Саттархановтың рөлін сомдаған танымал актер. 
                     </p>
                     <p>
-                    <button value="g2_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    <button value="2" name="btn2" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
                     <img src="public/img/people/2/3.jpg" class="cartI">
-                    <p class="small">Елубаева Асем – Астана циркінің әртісі. 
-                        2014 ж Оңтүстік Корея «DIMF-2014» мюзикл фестивалінің лауреаты.. 
+                    <p class="small">Елубаева Асем – Астана циркінің әртісі.  
                         Халықаралық Шабыт фестивальінің цирк номинациясының лауреаты. 
                         2019 ж Азия-Жанғырығы Халықаралық цирк фестивалінің лауреаты және 
                         Испания еліндегі фестивальға шақырту алынды
                     </p>
                     <p>
-                    <button value="g2_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    <button value="3" name="btn2" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -155,7 +215,7 @@
                         Көптеген халықаралық және республикалық байқаулардың жеңімпазы.
                     </p>
                     <p>
-                        <button value="g3_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn3" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart4">
@@ -164,7 +224,7 @@
                         Көптеген халықарылық және республикалық байқаулардың жеңімпазы
                     </p>
                     <p>
-                        <button value="g3_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn3" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart4">
@@ -173,7 +233,7 @@
                         және республикалық айтыстардың жүлдегері.
                     </p>
                     <p>
-                        <button value="g3_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn3" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart4">
@@ -183,7 +243,7 @@
                     және республикалық байқаулардың жеңімпазы
                     </p>
                     <p>
-                        <button value="g3_4" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="4" name="btn3" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -196,7 +256,7 @@
                         Азия елдері  әйелдер арасында 8жасынан  чемпион атанған жас шахматшы. 
                     </p>
                     <p>
-                        <button value="g4_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn4" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
 
                 </div>
@@ -207,7 +267,7 @@
                         мастері, Бірнеше халықаралық олимпиадалардың жеңімпазы
                     </p>
                     <p>
-                        <button value="g4_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn4" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
 
                 </div>
@@ -219,7 +279,7 @@
                         байқаулардың жеңімпазы.
                     </p>
                     <p>
-                        <button value="g4_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn4" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
 
                 </div>
@@ -233,7 +293,7 @@
                     компаниясының үздік өндірушісі.
                     </p>
                     <p>
-                        <button value="g5_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn5" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
 
                 </div>
@@ -244,7 +304,7 @@
                     Жастар кеңісінің белсендісі.
                     </p>
                     <p>
-                        <button value="g5_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn5" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
 
                 </div>
@@ -254,7 +314,7 @@
                     АҚ жетекші инженер –конструктор. Үздік қызметкер.
                     </p>
                     <p>
-                        <button value="g5_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn5" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
 
                 </div>
@@ -341,7 +401,7 @@
                 <div class="cart cart5">
                     <img src="public/img/people/8/4.jpg" class="cartI">
                     <p class="small">Нүркен Әділхан –С.Сейфуллин атындағы  
-                    Қазақ ұлттық агротехникалық университетінің белсенді студенті. 
+                    Қазақ агротехникалық университетінің белсенді студенті. 
                     </p>
                     <p>
                         <button value="g8_4" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
@@ -452,9 +512,7 @@
                     <img src="public/img/people/12/1.jpg" class="cartI">
                     <p class="small">Ерманова Таңшолпан - Қазақстан Республикасының 
                     Ақпарат және қоғамдық даму министрлігі Жастар және отбасы 
-                    істері комитетінің бас сарапшысы/Қазақстан Республикасы 
-                    Президентінің жанындағы Мемлекеттік басқару академиясының 
-                    «Экономика» білім беру бағдарламасының магистранты
+                    істері комитетінің бас сарапшысы
                     </p>
                     <p>
                         <button value="g12_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
@@ -493,7 +551,7 @@
                 </div>
                 <div class="cart">
                     <img src="public/img/people/13/3.jpg" class="cartI">
-                    <p class="small">Мурат Мирас – 66 орта мектептің 10 сынып 
+                    <p class="small">Мурат Мирас – 66 орта мектептің 11 сынып 
                     оқушысы. «Астана жастары» волонтеры.
                     </p>
                     <p>

@@ -4,23 +4,25 @@
 
     // Подключение БД
     require_once 'app/pdo/connect.php';
-
+    
     // Если кнопка отправить нажата
     if(!empty($_POST['btn'])) {
+        
         $err = [];
-
+        
         // Проверка имени
         if(!empty($_POST['email'])) {
             $email = trim($_POST['email']);
             $email = htmlentities($email);
-
+            
             // Проверка на существование логина
             $sql = 'SELECT * FROM users WHERE email = "'. $email .'"';
             $res = $pdo->query($sql);
             $res = $res->fetch(PDO::FETCH_ASSOC);
             
             if($res['email'] !== $email) {
-
+                
+                
                 // Проверка пароля
                 if(!empty($_POST['pass'])) {
                     $pass = trim($_POST['pass']);
@@ -33,22 +35,23 @@
                 if($_POST['pass2'] && $_POST['pass2'] == $_POST['pass']) {
                     $pass2 = trim($_POST['pass2']);
                     $pass = password_hash($pass, PASSWORD_DEFAULT);
-
+                    
                     if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
                         $ip = $ip.'/'.$_SERVER['HTTP_CLIENT_IP'];
                     }
                     if(!empty($_SERVER['REMOTE_ADDR'])) {
                         $ip = $_SERVER['REMOTE_ADDR'];
                     }
-
-                    $iin = $_POST['iin'];
-
+                    $name = $_POST['name'];
+                    
                     // Регистрация
-                    $sqlReg = 'INSERT INTO users(`email`, `pass`, `ip`, `iin`) VALUES("'.$email.'", "'.$pass.'", "'.$ip.'", "'.$iin.'");';
-                    $resReg = $pdo->query($sqlReg);
+                        $sqlReg = 'INSERT INTO users(`name`,`email`, `pass`, `ip`) VALUES( "'.$name.'", "'.$email.'", "'.$pass.'", "'.$ip.'");';
+                        $resReg = $pdo->query($sqlReg);
+                        
+                        
 
-                    // Редирект при успешной регистрации
-                    if(!empty($resReg)) {
+                        // Редирект при успешной регистрации
+                        if(!empty($resReg)) {
             
                         $_SESSION['email'] = $email;
 
@@ -100,19 +103,19 @@
         <form action="" method="post" class="form">
             <p class="pInp">
                 <label for="email" class="label">электрондық поштаны енгізіңіз</label>
-                <input type="email" class="inp" name="email" placeholder="">
+                <input type="email" class="inp" name="email" placeholder="" autocomplete="off">
             </p> 
             <p class="pInp">
-                <label for="iin" class="label">жеке сјйкестендіру нґмір ЖСН</label>
-                <input type="number" class="inp" name="iin" placeholder="">
+                <label for="iin" class="label">ЖСН/ИИН</label>
+                <input type="text" class="inp" name="name" placeholder="" autocomplete="off">
             </p>    
             <p class="pInp">
                 <label for="pass" class="label">құпия сөзді еңгізіңіз</label>
-                <input type="password" class="inp" name="pass" placeholder="">
+                <input type="password" class="inp" name="pass" placeholder="" autocomplete="off">
             </p>
             <p class="pInp">
                 <label for="pass2" class="label">құпия сөзді қайта еңгізіңіз</label>
-                <input type="password" class="inp" name="pass2" placeholder="">
+                <input type="password" class="inp" name="pass2" placeholder="" autocomplete="off">
             </p>
             <input type="submit" class="btn" name="btn" value="Тіркеу"> 
                 
