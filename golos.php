@@ -23,10 +23,11 @@
         $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
         $res = $pdo->query($sql);
         $res = $res->fetch(PDO::FETCH_ASSOC);
-        if(!isset($res['g1'])) {
+        if($res['g1'] == '') {
             $btn = $_POST['btn1'];
             $sqlL = 'UPDATE `golos` SET `g1`="'.$btn.'" WHERE `email`="'.$email.'"';
             $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
         }else{
             echo '<p class="error">Вы уже голосовали в этой номинации</>';
         }
@@ -36,10 +37,12 @@
         $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
         $res = $pdo->query($sql);
         $res = $res->fetch(PDO::FETCH_ASSOC);
-        if(!isset($res['g2'])) {
+        if($res['g2'] == '') {
             $btn = $_POST['btn2'];
             $sqlL = 'UPDATE `golos` SET `g2`="'.$btn.'" WHERE `email`="'.$email.'"';
             $r = $pdo->query($sqlL);
+            echo '<p class="error">Голос принят</>';
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
         }else{
             echo '<p class="error">Вы уже голосовали в этой номинации</>';
         }
@@ -49,10 +52,11 @@
         $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
         $res = $pdo->query($sql);
         $res = $res->fetch(PDO::FETCH_ASSOC);
-        if(!isset($res['g3'])) {
+        if($res['g3'] == '') {
             $btn = $_POST['btn3'];
             $sqlL = 'UPDATE `golos` SET `g3`="'.$btn.'" WHERE `email`="'.$email.'"';
             $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
         }else{
             echo '<p class="error">Вы уже голосовали в этой номинации</>';
         }
@@ -62,10 +66,11 @@
         $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
         $res = $pdo->query($sql);
         $res = $res->fetch(PDO::FETCH_ASSOC);
-        if(!isset($res['g4'])) {
+        if($res['g4'] == '') {
             $btn = $_POST['btn4'];
             $sqlL = 'UPDATE `golos` SET `g4`="'.$btn.'" WHERE `email`="'.$email.'"';
             $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
         }else{
             echo '<p class="error">Вы уже голосовали в этой номинации</>';
         }
@@ -75,10 +80,123 @@
         $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
         $res = $pdo->query($sql);
         $res = $res->fetch(PDO::FETCH_ASSOC);
-        if(!isset($res['g5'])) {
+        if($res['g5'] == '') {
             $btn = $_POST['btn5'];
             $sqlL = 'UPDATE `golos` SET `g5`="'.$btn.'" WHERE `email`="'.$email.'"';
             $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn6'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g6'] == '') {
+            $btn = $_POST['btn6'];
+            $sqlL = 'UPDATE `golos` SET `g6`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn7'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g7'] == '') {
+            $btn = $_POST['btn7'];
+            $sqlL = 'UPDATE `golos` SET `g7`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn8'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g8'] == '') {
+            $btn = $_POST['btn8'];
+            $sqlL = 'UPDATE `golos` SET `g8`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn9'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g9'] == '') {
+            $btn = $_POST['btn9'];
+            $sqlL = 'UPDATE `golos` SET `g9`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn10'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g10'] == '') {
+            $btn = $_POST['btn10'];
+            $sqlL = 'UPDATE `golos` SET `g10`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn11'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g11'] == '') {
+            $btn = $_POST['btn11'];
+            $sqlL = 'UPDATE `golos` SET `g11`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn12'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g12'] == '') {
+            $btn = $_POST['btn12'];
+            $sqlL = 'UPDATE `golos` SET `g12`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации</>';
+        }
+    }
+
+    if(!empty($_POST['btn13'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g13'] == '') {
+            $btn = $_POST['btn13'];
+            $sqlL = 'UPDATE `golos` SET `g13`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать вдругих категориях по одному разу</>';
         }else{
             echo '<p class="error">Вы уже голосовали в этой номинации</>';
         }
@@ -326,7 +444,7 @@
                     <p class="small">Түстікбаев Ілияс -Қазақстан студенттер альянсының президенті
                     </p>
                     <p>
-                        <button value="g6_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn6" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -335,7 +453,7 @@
                         ЖҚ / ЧФ- ДиректорАМАНАТ азазматтық платформасы Нұр-Сұлтан қ.- Жетекші
                     </p>
                     <p>
-                        <button value="g6_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn6" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -344,7 +462,7 @@
                         іс-қимыл агенттігі,  Парасаттылық департаментінің бас эксперті.
                     </p>
                     <p>
-                        <button value="g6_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn6" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -356,7 +474,7 @@
                         Халықарлық және республикалық сән байқауларының жеңімпазы.
                     </p>
                     <p>
-                        <button value="g7_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn7" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -365,7 +483,7 @@
                     фотобайқауының жеңімпазы.
                     </p>
                     <p>
-                        <button value="g7_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn7" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -377,7 +495,7 @@
                         университетінің белсенді студенті.
                     </p>
                     <p>
-                        <button value="g8_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn8" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart5">
@@ -386,7 +504,7 @@
                         Гуманитарлық заң университетінің  белсенді студенті 
                     </p>
                     <p>
-                        <button value="g8_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn8" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart5">
@@ -395,7 +513,7 @@
                         және халықаралық сауда университетінің белсенді студенті
                     </p>
                     <p>
-                        <button value="g8_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn8" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart5">
@@ -404,7 +522,7 @@
                     Қазақ агротехникалық университетінің белсенді студенті. 
                     </p>
                     <p>
-                        <button value="g8_4" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="4" name="btn8" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart cart5">
@@ -412,7 +530,7 @@
                     <p class="small">Шымыр Манап – Назарбаев университетінің белсенді студенті.
                     </p>
                     <p>
-                        <button value="g8_5" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="5" name="btn8" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -424,7 +542,7 @@
                     телеарнасының корреспонденті. 
                     </p>
                     <p>
-                        <button value="g9_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn9" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -434,7 +552,7 @@
                     байқаулардың жеңімпазы.
                     </p>
                     <p>
-                        <button value="g9_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn9" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -444,7 +562,7 @@
                         экономикалық жаңалықтар порталының негізін қалаушы.
                     </p>
                     <p>
-                        <button value="g9_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn9" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -455,7 +573,7 @@
                     <p class="small">Нұртаза Айдана – «Ұлттық биотехнология орталығының» қызметкері
                     </p>
                     <p>
-                        <button value="g10_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn10" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -464,7 +582,7 @@
                     министірлігінің қызметкері
                     </p>
                     <p>
-                        <button value="g10_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn10" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -472,7 +590,7 @@
                     <p class="small">Ерсаханов Қуаныш – Назарбаев университетінің қызметкері.
                     </p>
                     <p>
-                        <button value="g10_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn10" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -483,7 +601,7 @@
                     <p class="small">№54 мектеп-лицей, директоры
                     </p>
                     <p>
-                        <button value="g11_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn11" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -493,7 +611,7 @@
                     Жүнісәлиів Елдос «Ұлттық ғылыми кардиохирургия орталығы» АҚ
                     </p>
                     <p>
-                        <button value="g11_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn11" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -502,7 +620,7 @@
                     орталығы – балалар кардиология бөлімшесі мейіргер маманы
                     </p>
                     <p>
-                        <button value="g11_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn11" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -515,7 +633,7 @@
                     істері комитетінің бас сарапшысы
                     </p>
                     <p>
-                        <button value="g12_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn12" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -525,7 +643,7 @@
                     және теологиялық оқу орындармен жұмыс бөлімінің маманы
                     </p>
                     <p>
-                        <button value="g12_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn12" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -537,7 +655,7 @@
                     қауымдастығы» волонтері
                     </p>
                     <p>
-                        <button value="g13_1" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="1" name="btn13" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -546,7 +664,7 @@
                     «Adal Volunteer Club» жастар ұйымының негізін қалаушы
                     </p>
                     <p>
-                        <button value="g13_2" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="2" name="btn13" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
                 <div class="cart">
@@ -555,7 +673,7 @@
                     оқушысы. «Астана жастары» волонтеры.
                     </p>
                     <p>
-                        <button value="g13_3" name="btn" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                        <button value="3" name="btn13" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
