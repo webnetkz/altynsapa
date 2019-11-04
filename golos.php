@@ -6,6 +6,15 @@
         header('Location: index.php');
     }
 
+    if(!empty($_POST['lang'])) {
+        if($_POST['lang'] == 'ru') {
+            header('Location: rugolos.php');
+        }
+        if($_POST['lang'] == 'kaz') {
+            header('Location: golos.php');
+        }
+    }
+
     // Подключение БД
     require_once 'app/pdo/connect.php';
 
@@ -258,6 +267,7 @@
     }
 
 
+
 ?>
 <!-- HTML Content -->
 <html>
@@ -287,6 +297,10 @@
     </head>
     <body>
     <!-- Append blocks -->
+        <form action="" method="post" class="lang">
+            <button value="ru" name="lang" class="btn" type="submit" style="font-size: 1em;">Русский</button>
+            <button value="kaz" name="lang" class="btn" type="submit" style="font-size: 1em;">Қазақ</button>
+        </form>
         <div>
             <a href="index.php">
                 <img src="public/img/logo.png" alt="logo elorda jastary" class="logo">
@@ -330,7 +344,7 @@
                 </div>
                 <div class="cart">
                     <img src="public/img/people/1/2.jpg" class="cartI">
-                    <p class="small">Әмре –көптеген халықаралық 
+                    <p class="small">Әмре – көптеген халықаралық 
                         және республикалық байқаулардың жеңімпазы, «Славян базары 
                         2018 » байқауының 1ші орын иегері, «Топжарған», «Екі жұлдыз»
                         т.б шоу бағдарламасының белсенді қатысушысы.Халық 
@@ -783,7 +797,7 @@
                 <p>
                     <a href="tel:+77074341799" style="color: white;">8 707 434 17 99</a>
                 </p>
-                <p>elorda.jastary2019@gmail.com</p>
+                <p>Email: elorda.jastary2019@gmail.com</p>
                 <p>Instagram: <a href="https://www.instagram.com/elorda_jastary/" style="color: white;">
                     elorda_jastary
                 </a></p>

@@ -99,7 +99,20 @@
                 <a href="register.php" class="aReg">Тіркеу</a>
             </p>
         </form>
-
+        <div style="background-color: rgba(0, 0, 0, 0.2);">
+            <h2>Байланысымыз:</h2>
+                <p>
+                    <a href="tel:+77074341799" style="color: white;">8 707 434 17 99</a>
+                </p>
+                <p>Email: elorda.jastary2019@gmail.com</p>
+                <p>Instagram: <a href="https://www.instagram.com/elorda_jastary/" style="color: white;">
+                    elorda_jastary
+                </a></p>
+                <p>
+                    <a href="https://elordajastary2019.kz">elordajastary.kz</a>
+                    <br>
+                </p>
+        </div>
     <!-- JS scripts -->
 
 </body>

@@ -109,3 +109,8 @@ h3, p {
     font-size: 1em;
     padding: 5px;
 }
+.lang {
+    position: fixed;
+    top: 5px;
+    left: 20px;
+}
