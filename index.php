@@ -42,7 +42,7 @@
                     if(password_verify($pass, $resLog['pass'])) {
 
                         $_SESSION['email'] = $email;
-                        header('Location: golos.php');
+                        header('Location: mail.php');
                     }else{
                         $err = '<p class="error">Не верный парль</p>';
                     }
