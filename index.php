@@ -2,9 +2,9 @@
 
     session_start();
 
-    if(!empty($_SESSION['email'])) {
-        header('Location: golos.php');
-    }
+    //if(!empty($_SESSION['email'])) {
+    //    header('Location: golos.php');
+    //}
 
     // Подключение БД
     require_once 'app/pdo/connect.php';

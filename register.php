@@ -56,7 +56,7 @@
                         $_SESSION['email'] = $email;
 
                         
-                        header('Location: golos.php');
+                        header('Location: index.php');
                     }
                 }else{
                     $err = '<p class="error">Заполните поля с паролями</p>';

@@ -1,12 +1,15 @@
 
 <?php
+
+session_start();
+
 // Файлы phpmailer
 require 'mailer/PHPMailer.php';
 require 'mailer/SMTP.php';
 require 'mailer/Exception.php';
 // Переменные, которые отправляет пользователь
 $email = $_SESSION['email'];
-$text = '<a href="https://elordajastary.kz/golos.php">Пройдите по ссылке чтоб авторизоваться</a>';
+$text = '<a href="https://elordajastary2019.kz/golos.php">Пройдите по ссылке чтоб авторизоваться</a>';
 $mail = new PHPMailer\PHPMailer\PHPMailer();
 try {
     //$msg = "ok";
@@ -31,6 +34,8 @@ try {
     
         $mail->Subject = 'Elorda Jastary';
         $mail->Body    = $text;
+
+        header('Location: https://elordajastary2019.kz');
 // Проверяем отравленность сообщения
 //if ($mail->send()) {
 //    echo "$msg";
