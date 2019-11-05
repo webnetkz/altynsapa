@@ -858,10 +858,7 @@
                 <p>Instagram: <a href="https://www.instagram.com/elorda_jastary/" style="color: white;">
                     elorda_jastary
                 </a></p>
-                <p>
-                    <a href="https://elordajastary2019.kz">elordajastary.kz</a>
-                    <br>
-                </p>
+
         </div>
 
 
