@@ -5,6 +5,7 @@
     if(empty($_SESSION['email'])) {
         header('Location: index.php');
     }
+        
 
     if(!empty($_POST['lang'])) {
         if($_POST['lang'] == 'ru') {
@@ -266,7 +267,19 @@
         }
     }
 
-
+    if(!empty($_POST['btn15'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g15'] == '') {
+            $btn = $_POST['btn15'];
+            $sqlL = 'UPDATE `golos` SET `g15`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать в других категориях по одному разу!</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации!</>';
+        }
+    }
 
 ?>
 <!-- HTML Content -->
@@ -314,9 +327,6 @@
             <h2>желтоқсан</h2>
             <h1>19:00</h1>
         </div>
-            <p>
-                <b>Кіріспе</b>: Қазақстан Республикасының  Тұңғыш Президенті Нұрсұлтан Әбішұлы Назарбаев «Қазақстандықтардың әл-ауқатының өсуі: табыс пен тұрмыс сапасын арттыру» атты жолдауында 2019 жылды «Жастар жылы» деп жариялады.Елбасымыз  жастардың бүгіні мен болашағына қамқорлық жасауды өз саясатының негізгі мәні деп санады. Жастар – кез келген мемлекеттің ең белсенді бөлігі, қоғамның қозғаушы күші. Қазақстанның әлемнің ең дамыған 30 елінің қатарына кіруі жолында жастардың атқаратын рөлі зор.
-            </p>
             <p>
                 <b>Жобаның мақсаты мен міндеті</b>: Елорда жастарының Отанға, елге деген құрметін, сүйіспеншілігін арттыру, жастардың жан-жақты дамуына, олардың кәсіби шығармашылығының өсуіне мүмкіндік жасау.
                 Белсенді жастарды мемлекеттік деңгейде қолдау,  олардың ғылыми, шығармашылық және қоғамдық қызметі, сондай–ақ жастар мен үкіметтік емес ұйымдар арасындағы ынтымақтастықты дамыту, табысты жастардың идеалын қалыптастыру. Олардың жеткен жетістіктерін халық арасында танытып, дәріптеу, бәсекеге қабілетті және кәсіби шеберлігі жоғары мамандарды қалыптастыру.
@@ -557,11 +567,18 @@
                 </div>
                 <div class="cart">
                     <img src="public/img/people/7/2.jpg" class="cartI">
-                    <p class="small">Аден Гульнар – Фрилансер. «Мен Қазақстанды сүйемін»
-                    фотобайқауының жеңімпазы.
+                    <p class="small">Аден Гульнар – Фрилансер.
                     </p>
                     <p>
                         <button value="2" name="btn7" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    </p>
+                </div>
+                <div class="cart">
+                    <img src="public/img/people/7/3.jpg" class="cartI">
+                    <p class="small">Темиржан Нурлан - фрилансер. Көптеген көрмелерді сәндеуші.
+                    </p>
+                    <p>
+                        <button value="3" name="btn7" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
             </div>
@@ -676,7 +693,7 @@
                     <p>Әлеуметтік салының үздік қызметкері</p>
                 <div class="cart">
                     <img src="public/img/people/11/1.jpg" class="cartI">
-                    <p class="small">№54 мектеп-лицей, директоры. 35 оқушыны Назарбаев университетіне дайындап, оқуға түсірген ұстаз! «Қазақстан патриоты» медальінің иегері
+                    <p class="small">Сейсенбай Шәкәрiм - №54 мектеп-лицей директоры. 35 оқушыны Назарбаев университетіне дайындап, оқуға түсірген ұстаз! «Қазақстан патриоты» медальінің иегері
                     </p>
                     <p>
                         <button value="1" name="btn11" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
@@ -686,7 +703,7 @@
                     <img src="public/img/people/11/2.jpg" class="cartI">
                     <p class="small">Жүнісәлиівтер отбасы. Исанханова Сұлушаш -НАО 
                     «МУА» резидент, НАО «МУА» патофизиология кафедрасының мұғалімі. 
-                    Жүнісәлиів Елдос «Ұлттық ғылыми кардиохирургия орталығы» АҚ қызмектер
+                    Жүнісәлиів Елдос «Ұлттық ғылыми кардиохирургия орталығы» АҚ қызмектерi.
                     </p>
                     <p>
                         <button value="2" name="btn11" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
@@ -724,6 +741,14 @@
                         <button value="2" name="btn12" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
                     </p>
                 </div>
+                <div class="cart">
+                    <img src="public/img/people/12/3.jpg" class="cartI">
+                    <p class="small">Сапарбаев Жансұлтан Бердібекұлы - «Нұр-Сұлтан қаласының Көлік және жол-көлік инфрақұрылымын дамыту» ММ төрағасының орынбасары
+                    </p>
+                    <p>
+                        <button value="3" name="btn12" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    </p>
+                </div>
             </div>
             <div class="line">
                     <p>Жыл волонтеры</p>
@@ -756,7 +781,7 @@
                 </div>
             </div>
             <div class="line">
-                    <p>Ұлттық өнер</p>
+                    <p>Үздiк жастар театры</p>
                 <div class="cart cart4">
                     <img src="public/img/people/14/1.jpg" class="cartI">
                     <p class="small">«Назар аудар» театры
@@ -790,10 +815,42 @@
                     </p>
                 </div>
             </div>
+
+            <div class="line">
+                    <p>Жас кәсіпкер</p>
+                <div class="cart">
+                    <img src="public/img/people/15/1.jpeg" class="cartI">
+                    <p class="small">Бапанова Айгерім – «Бизнестің жол картасы 2020» бағдарламасы бойынша грант иегері. «CANDY&SANDY» компаниясының негізін қалаушы
+
+                    </p>
+                    <p>
+                        <button value="1" name="btn15" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    </p>
+                </div>
+                <div class="cart">
+                    <img src="public/img/people/15/2.jpg" class="cartI">
+                    <p class="small">Абдукаримова Аягоз -  Жас кәсіпкер. «Даяр» брендінің негізін қалаушы.
+
+                    </p>
+                    <p>
+                        <button value="2" name="btn15" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    </p>
+                </div>
+                <div class="cart">
+                    <img src="public/img/people/15/3.jpg" class="cartI">
+                    <p class="small">Қанат Ұзақ - ЕНУ, экономика факультеті туризм мамандығының студенті. «Сity group construction» компаниясының басшысы. Саяхатшы.
+
+
+                    </p>
+                    <p>
+                        <button value="3" name="btn15" class="btn" type="submit" style="font-size: 1em;">дауыс беру</button>
+                    </p>
+                </div>
+            </div>
             </form>
         </div>
         <div style="background-color: rgba(0, 0, 0, 0.2);">
-            <h2>Байланысымыз:</h2>
+            <h2>Байланыс:</h2>
                 <p>
                     <a href="tel:+77074341799" style="color: white;">8 707 434 17 99</a>
                 </p>

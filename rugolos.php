@@ -224,6 +224,20 @@
         }
     }
 
+    if(!empty($_POST['btn15'])) {
+        $sql = 'SELECT * FROM golos WHERE email = "'.$email.'"';
+        $res = $pdo->query($sql);
+        $res = $res->fetch(PDO::FETCH_ASSOC);
+        if($res['g15'] == '') {
+            $btn = $_POST['btn15'];
+            $sqlL = 'UPDATE `golos` SET `g15`="'.$btn.'" WHERE `email`="'.$email.'"';
+            $r = $pdo->query($sqlL);
+            echo '<p class="error">Спасибо! Ваш голос принят. Вы можете проголосовать в других категориях по одному разу!</>';
+        }else{
+            echo '<p class="error">Вы уже голосовали в этой номинации!</>';
+        }
+    }
+
 
 ?>
 <!-- HTML Content -->
@@ -272,9 +286,6 @@
             <h2>декабря</h2>
             <h1>19:00</h1>
         </div>
-            <p>
-                <b>Введение</b>: Первый Президент Республики Казахстан Нурсултан Абишевич Назарбаев в своем Послании Президенту Республики Казахстан «Повышение благосостояния Казахстана: повышение качества жизни и процветания» объявил 2019 год Годом молодежи. Глава государства посчитал заботу о сегодняшней и будущей молодежи ключевой частью своей политики. Молодежь - самая активная часть любого государства, движущая сила общества. Роль молодежи в вхождении Казахстана в топ-30 развитых стран мира.
-            </p>
             <p>
             Целью и целью проекта является повышение любви молодежи к Родине, к стране, развитие их любви к молодому поколению, развитие их профессионального творчества.
             Поддержка активной молодежи на государственном уровне, ее научной, творческой и общественной деятельности, а также развитие сотрудничества между молодежью и неправительственными организациями, формирование идеального молодежного идеала. Демонстрировать людям свои достижения, формировать конкурентные и профессиональные навыки.
@@ -508,6 +519,14 @@
                         <button value="2" name="btn7" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
                     </p>
                 </div>
+                <div class="cart">
+                    <img src="public/img/people/7/3.jpg" class="cartI">
+                    <p class="small">Темиржан Нурлан - фрилансер. Көптеген көрмелерді сәндеуші.
+                    </p>
+                    <p>
+                        <button value="3" name="btn7" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
+                    </p>
+                </div>
             </div>
             <div class="line">
                     <p>Үздік студент</p>
@@ -667,6 +686,14 @@
                         <button value="2" name="btn12" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
                     </p>
                 </div>
+                <div class="cart">
+                    <img src="public/img/people/12/3.jpg" class="cartI">
+                    <p class="small">Сапарбаев Жансұлтан Бердібекұлы - «Нұр-Сұлтан қаласының Көлік және жол-көлік инфрақұрылымын дамыту» ММ төрағасының орынбасары
+                    </p>
+                    <p>
+                        <button value="3" name="btn12" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
+                    </p>
+                </div>
             </div>
             <div class="line">
                     <p>Жыл волонтеры</p>
@@ -733,6 +760,37 @@
                     </p>
                     <p>
                         <button value="4" name="btn14" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
+                    </p>
+                </div>
+            </div>
+            <div class="line">
+                    <p>Жас кәсіпкер</p>
+                <div class="cart">
+                    <img src="public/img/people/15/1.jpeg" class="cartI">
+                    <p class="small">Бапанова Айгерім – «Бизнестің жол картасы 2020» бағдарламасы бойынша грант иегері. «CANDY&SANDY» компаниясының негізін қалаушы
+
+                    </p>
+                    <p>
+                        <button value="1" name="btn15" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
+                    </p>
+                </div>
+                <div class="cart">
+                    <img src="public/img/people/15/2.jpg" class="cartI">
+                    <p class="small">Абдукаримова Аягоз -  Жас кәсіпкер. «Даяр» брендінің негізін қалаушы.
+
+                    </p>
+                    <p>
+                        <button value="2" name="btn15" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
+                    </p>
+                </div>
+                <div class="cart">
+                    <img src="public/img/people/15/3.jpg" class="cartI">
+                    <p class="small">Қанат Ұзақ - ЕНУ, экономика факультеті туризм мамандығының студенті. «Сity group construction» компаниясының басшысы. Саяхатшы.
+
+
+                    </p>
+                    <p>
+                        <button value="3" name="btn15" class="btn" type="submit" style="font-size: 1em;">голосовать</button>
                     </p>
                 </div>
             </div>
